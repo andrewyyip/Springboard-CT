@@ -179,7 +179,7 @@ from
 (
 select 
 fac.name as name,
-sum(case when book.memid = 0 then fac.guestcost else fac.membercost end) as cost
+sum(case when book.memid = 0 then fac.guestcost*book.slots else fac.membercost*book.slots end) as cost
 from country_club.Bookings as book
 left join country_club.Facilities as fac
 on book.facid = fac.facid
